@@ -5,6 +5,7 @@ import ethicalHacker from "../../assets/certificate/ethical_hacker.jpg";
 import javaCertificate from "../../assets/certificate/java_certificate.jpg";
 import psitsCertificate from "../../assets/certificate/psits_certificate.jpg";
 import aspnetCertificate from "../../assets/certificate/asp.net.jpg";
+import datascience from "../../assets/certificate/datascience.jpg";
 
 const workItems = [
   {
@@ -35,6 +36,15 @@ const certificationItems = [
     title: "Microsoft Certified - Java Programming",
     description: "Introduction to Programming using Java (Microsoft Technology Associate).",
     image: javaCertificate
+  },
+  {
+    type: "CERTIFICATION",
+    issuer: "Cisco Networking Academy",
+    issued: "Issued June 2026",
+    title: "Introduction to Data Science",
+    description:
+      "Completed Introduction to Data Science course under the Cisco Networking Academy program.",
+    image: datascience
   },
   {
     type: "CERTIFICATION",
