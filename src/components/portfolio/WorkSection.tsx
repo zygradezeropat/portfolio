@@ -48,7 +48,7 @@ const certificationItems = [
   },
   {
     type: "CERTIFICATION",
-    issuer: "Cisco Networking Academy",
+    issuer: "Davao del Norte State College",
     issued: "Issued Dec 2025",
     title: "Cisco Certified - Ethical Hacking",
     description:
