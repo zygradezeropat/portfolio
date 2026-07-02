@@ -14,8 +14,7 @@ export function HeroSection() {
       </div>
 
       <p className="max-w-[620px] text-[1.9rem] leading-relaxed text-zinc-400/90 md:text-[2.1rem]">
-        Full Stack Developer | Graduating BSIT Student - Davao del Norte State
-        College
+        Full Stack Developer | Web Developer | AI Engineer
       </p>
 
       <div className="font-mono text-sm text-emerald-300/80">
