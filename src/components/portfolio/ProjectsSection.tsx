@@ -1,50 +1,135 @@
-const projects = [
-  {
-    name: "Valiant Technology Tesda Management System",
-    description:
-      "A Web based school management system that uses Django, Bootstrap and PostgreSQL.",
-    stack: "Python",
-    type: "Private",
-    updated: "Updated Jun 28, 2026",
-    href: "//"
-  },
-   {
-    name: "Office of Senior Citizen Affairs (OSCA) Management System",
-    description:
-      "A Web based management system that uses Next.js, Tailwind and PostgreSQL.",
-    stack: "Next.js",
-    type: "Private",
-    updated: "Updated May 28, 2026",
-    href: "//"
-  },
-  {
-    name: "capstone-mhoers",
-    description: "Capstone project repository.",
-    stack: "HTML",
-    type: "Public",
-    updated: "Updated Feb 5",
-    href: "https://github.com/zygradezeropat/capstone-mhoers"
-  },
-  {
-    name: "rentalmanagementsystem",
-    description:
-      "Rental property management system project built with HTML, CSS, JS, PHP, and MySQL.",
-    stack: "PHP",
-    type: "Public",
-    updated: "Updated Jun 7, 2024",
-    href: "https://github.com/zygradezeropat/rentalmanagementsystem"
-  },
-  {
-    name: "ironhorn",
-    description:
-      "My first student project website. I keep it here to show my growth journey.",
-    stack: "HTML",
-    type: "Public",
-    updated: "Early student project",
-    href: "https://github.com/zygradezeropat/ironhorn"
-  }
-  
-];
+import { useState } from "react";
+
+import { projects } from "../../data/portfolioData";
+
+function ProjectCard({ project }: { project: (typeof projects)[number] }) {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const hasMultipleImages = project.previewImages.length > 1;
+  const currentImage = project.previewImages[activeImageIndex];
+
+  const showPrevious = () => {
+    setActiveImageIndex((prev) => (prev === 0 ? project.previewImages.length - 1 : prev - 1));
+  };
+
+  const showNext = () => {
+    setActiveImageIndex((prev) => (prev + 1) % project.previewImages.length);
+  };
+
+  return (
+    <>
+      <article className="rounded-2xl border border-zinc-700/60 bg-zinc-900/35 p-5 md:p-6">
+      <div className="mb-3 flex items-center justify-between gap-4 font-mono text-xs">
+        <span className="text-zinc-500">{project.type}</span>
+        <span className="text-emerald-300">{project.updated}</span>
+      </div>
+
+      <div className="mb-4 overflow-hidden rounded-xl border border-zinc-800/80 bg-zinc-950/70">
+        <div className="relative aspect-video">
+          <button
+            className="block h-full w-full text-left"
+            onClick={() => setIsLightboxOpen(true)}
+            type="button"
+          >
+            <img
+              alt={currentImage.alt}
+              className="h-full w-full cursor-zoom-in object-cover transition hover:scale-[1.02]"
+              src={currentImage.src}
+            />
+          </button>
+          {hasMultipleImages && (
+            <>
+              <button
+                aria-label="Show previous preview"
+                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-zinc-950/70 px-2 py-1 text-sm text-zinc-100 transition hover:bg-zinc-800"
+                onClick={showPrevious}
+                type="button"
+              >
+                ←
+              </button>
+              <button
+                aria-label="Show next preview"
+                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-zinc-950/70 px-2 py-1 text-sm text-zinc-100 transition hover:bg-zinc-800"
+                onClick={showNext}
+                type="button"
+              >
+                →
+              </button>
+            </>
+          )}
+        </div>
+
+        {hasMultipleImages && (
+          <div className="flex items-center justify-center gap-2 border-t border-zinc-800/80 bg-zinc-950/60 px-3 py-2">
+            {project.previewImages.map((image, index) => (
+              <button
+                aria-label={`Show preview ${index + 1}`}
+                className={`h-2.5 w-2.5 rounded-full transition ${
+                  index === activeImageIndex ? "bg-sky-400" : "bg-zinc-700 hover:bg-zinc-500"
+                }`}
+                key={image.src}
+                onClick={() => setActiveImageIndex(index)}
+                type="button"
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <h3 className="mb-2 text-xl font-semibold text-zinc-100">{project.name}</h3>
+      <p className="mb-4 leading-relaxed text-zinc-300/95">{project.description}</p>
+      <div className="flex items-center justify-between gap-3">
+        <span className="rounded-md border border-violet-400/30 bg-violet-500/10 px-2.5 py-1 font-mono text-xs text-violet-200">
+          {project.stack}
+        </span>
+        <span className="font-mono text-xs text-zinc-400">
+          {hasMultipleImages ? "Click through previews" : "Preview available"}
+        </span>
+      </div>
+    </article>
+
+      {isLightboxOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 px-4 py-6">
+          <div className="relative w-full max-w-5xl rounded-2xl border border-zinc-700/70 bg-zinc-950 p-3 shadow-2xl">
+            <button
+              aria-label="Close preview"
+              className="absolute right-3 top-3 z-10 rounded-full border border-white/10 bg-zinc-900/80 px-3 py-1 text-sm text-zinc-100 transition hover:bg-zinc-800"
+              onClick={() => setIsLightboxOpen(false)}
+              type="button"
+            >
+              ✕
+            </button>
+            <img
+              alt={currentImage.alt}
+              className="max-h-[80vh] w-full rounded-xl object-contain"
+              src={currentImage.src}
+            />
+            {hasMultipleImages && (
+              <div className="mt-3 flex items-center justify-center gap-2">
+                <button
+                  aria-label="Show previous preview"
+                  className="rounded-full border border-zinc-700 bg-zinc-900 px-3 py-1 text-sm text-zinc-100 transition hover:bg-zinc-800"
+                  onClick={showPrevious}
+                  type="button"
+                >
+                  ← Prev
+                </button>
+                <button
+                  aria-label="Show next preview"
+                  className="rounded-full border border-zinc-700 bg-zinc-900 px-3 py-1 text-sm text-zinc-100 transition hover:bg-zinc-800"
+                  onClick={showNext}
+                  type="button"
+                >
+                  Next →
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
 
 export function ProjectsSection() {
   return (
@@ -69,30 +154,7 @@ export function ProjectsSection() {
 
       <div className="grid gap-4 md:grid-cols-2">
         {projects.map((project) => (
-          <article
-            className="rounded-2xl border border-zinc-700/60 bg-zinc-900/35 p-5 md:p-6"
-            key={project.name}
-          >
-            <div className="mb-3 flex items-center justify-between gap-4 font-mono text-xs">
-              <span className="text-zinc-500">{project.type}</span>
-              <span className="text-emerald-300">{project.updated}</span>
-            </div>
-            <h3 className="mb-2 text-xl font-semibold text-zinc-100">{project.name}</h3>
-            <p className="mb-4 leading-relaxed text-zinc-300/95">{project.description}</p>
-            <div className="flex items-center justify-between">
-              <span className="rounded-md border border-violet-400/30 bg-violet-500/10 px-2.5 py-1 font-mono text-xs text-violet-200">
-                {project.stack}
-              </span>
-              <a
-                className="font-mono text-xs text-zinc-400 transition hover:text-zinc-100"
-                href={project.href}
-                rel="noreferrer"
-                target="_blank"
-              >
-                View on GitHub ↗
-              </a>
-            </div>
-          </article>
+          <ProjectCard key={project.name} project={project} />
         ))}
       </div>
 
