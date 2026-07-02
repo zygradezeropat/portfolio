@@ -10,8 +10,8 @@ import datascience from "../../assets/certificate/datascience.jpg";
 const workItems = [
   {
     type: "INTERNSHIP",
-    period: "Recent",
-    status: "Present",
+    period: "Feb 2026 - May 2026",
+    status: "Completed",
     title: "Web Developer (Frappe)",
     company: "Wela Online Corporation - Livro System Inc.",
     description:
