@@ -17,6 +17,21 @@ const createPreviewImage = (title: string, accent: string, subtitle: string) => 
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 };
 
+// Use Vite-friendly URL imports for local images so they're correctly
+// processed and copied to the build output (works on Vercel production).
+const valiantLanding = new URL('../assets/website-img/valiant/landingpage.png', import.meta.url).href;
+const valiantLoginForm = new URL('../assets/website-img/valiant/loginform.png', import.meta.url).href;
+const valiantRegistrarDashboard = new URL('../assets/website-img/valiant/registrardashboard.png', import.meta.url).href;
+const valiantStudentDashboard = new URL('../assets/website-img/valiant/studentdashboard.png', import.meta.url).href;
+const valiantTrainerDashboard = new URL('../assets/website-img/valiant/trainerdashboard.png', import.meta.url).href;
+
+const oscaLanding = new URL('../assets/website-img/osca/landingpage.png', import.meta.url).href;
+const oscaAdminDashboard = new URL('../assets/website-img/osca/admindashboard.png', import.meta.url).href;
+const oscaDashboardV2 = new URL('../assets/website-img/osca/dashboardv2.png', import.meta.url).href;
+const oscaStaff = new URL('../assets/website-img/osca/staff.png', import.meta.url).href;
+
+const mhoersDiseaseForecast = new URL('../assets/website-img/mhoers/diseaseforecast.png', import.meta.url).href;
+
 export const navItems = [
   { id: "01", label: "home.tsx", href: "#home", active: true },
   { id: "02", label: "about.tsx", href: "#about" },
@@ -36,23 +51,23 @@ export const projects = [
     updated: "Updated Jun 28, 2026",
     previewImages: [
       {
-        src: "/src/assets/website-img/valiant/landingpage.png",
+        src: valiantLanding,
         alt: "Landing page preview of Valiant Technology management system"
       },
       {
-        src: "/src/assets/website-img/valiant/loginform.png",
+        src: valiantLoginForm,
         alt: "Preview of Valiant Technology management system"
       },
       {
-       src: "/src/assets/website-img/valiant/registrardashboard.png",
+        src: valiantRegistrarDashboard,
         alt: "Secondary preview of Valiant Technology management system"
       },
       {
-        src: "/src/assets/website-img/valiant/studentdashboard.png",
+        src: valiantStudentDashboard,
         alt: "Third preview of Valiant Technology management system"
       },
       {
-        src: "/src/assets/website-img/valiant/trainerdashboard.png",
+        src: valiantTrainerDashboard,
         alt: "Fourth preview of Valiant Technology management system"
       },
     ]
@@ -66,19 +81,19 @@ export const projects = [
     updated: "Updated May 28, 2026",
     previewImages: [
       {
-        src: "/src/assets/website-img/osca/landingpage.png",
+        src: oscaLanding,
         alt: "Preview of OSCA management system"
       },
       {
-        src: "/src/assets/website-img/osca/admindashboard.png",
+        src: oscaAdminDashboard,
         alt: "Secondary preview of OSCA management system"
       },
       {
-        src: "/src/assets/website-img/osca/dashboardv2.png",
+        src: oscaDashboardV2,
         alt: "Third preview of OSCA management system"
       },
       {
-        src: "/src/assets/website-img/osca/staff.png",
+        src: oscaStaff,
         alt: "Fourth preview of OSCA management system"
       }
     ]
@@ -87,11 +102,11 @@ export const projects = [
     name: "capstone-mhoers",
     description: "Capstone project repository.",
     stack: "HTML",
-    type: "Public",
+    type: "Private",
     updated: "Updated May 19",
     previewImages: [
       {
-         src: "/src/assets/website-img/mhoers/diseaseforecast.png",
+         src: mhoersDiseaseForecast,
         alt: "Preview of capstone mhoers project"
       },
      
