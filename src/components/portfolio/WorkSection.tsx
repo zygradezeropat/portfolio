@@ -4,6 +4,7 @@ import day2Seminar from "../../assets/certificate/day2_seminar.jpg";
 import ethicalHacker from "../../assets/certificate/ethical_hacker.jpg";
 import javaCertificate from "../../assets/certificate/java_certificate.jpg";
 import psitsCertificate from "../../assets/certificate/psits_certificate.jpg";
+import aspnetCertificate from "../../assets/certificate/asp.net.jpg";
 
 const workItems = [
   {
@@ -43,6 +44,15 @@ const certificationItems = [
     description:
       "Completed Ethical Hacker training under the Cisco Networking Academy program.",
     image: ethicalHacker
+  },
+  {
+    type: "CERTIFICATION",
+    issuer: "ScholarHat",
+    issued: "Issued July 2026",
+    title: "ASP.NET Core Foundations Course",
+    description:
+      "Completed ASP.NET Core Foundations course, covering web development fundamentals and best practices.",
+    image: aspnetCertificate
   },
   {
     type: "ACHIEVEMENT",

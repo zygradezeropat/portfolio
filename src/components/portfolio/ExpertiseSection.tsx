@@ -20,7 +20,8 @@ const expertiseGroups = [
       { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
       { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
       { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-      { name: "Frappe", icon: "https://avatars.githubusercontent.com/u/743242?s=200&v=4" }
+      { name: "Frappe", icon: "https://avatars.githubusercontent.com/u/743242?s=200&v=4" },
+      { name: "ASP.NET Core", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" }
     ]
   },
   {

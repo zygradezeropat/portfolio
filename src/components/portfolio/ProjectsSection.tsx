@@ -1,5 +1,23 @@
 const projects = [
   {
+    name: "Valiant Technology Tesda Management System",
+    description:
+      "A Web based school management system that uses Django, Bootstrap and PostgreSQL.",
+    stack: "Python",
+    type: "Private",
+    updated: "Updated Jun 28, 2026",
+    href: "//"
+  },
+   {
+    name: "Office of Senior Citizen Affairs (OSCA) Management System",
+    description:
+      "A Web based management system that uses Next.js, Tailwind and PostgreSQL.",
+    stack: "Next.js",
+    type: "Private",
+    updated: "Updated May 28, 2026",
+    href: "//"
+  },
+  {
     name: "capstone-mhoers",
     description: "Capstone project repository.",
     stack: "HTML",
@@ -25,6 +43,7 @@ const projects = [
     updated: "Early student project",
     href: "https://github.com/zygradezeropat/ironhorn"
   }
+  
 ];
 
 export function ProjectsSection() {
